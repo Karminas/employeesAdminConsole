@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang = "en" xmlns:th="http://www.thymeleaf.orh">
+    <head>
+        <meta charset="UTF-8">
+        <title>Employees landing page</title>
+    </head>
+    <body>
+        <h1>Employees</h1>
+        <table>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>last name</th>
+            </tr>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.id}">id</td>
+                <td th:text="${employee.name}">name</td>
+                <td th:text="${employee.lastName}">lastname</td>
+                <td>
+                    <a th:href="@{/employees/delete/{id}(id=${employee.id})}">Remove</a>
+                    <a th:href="@{/employees/delete?id={id}(id=${employee.id})}">Remove</a>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
